@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
             magnetic = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
             gyroscope = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
-            //sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
 
             sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
             sensorManager.registerListener(this,magnetic,SensorManager.SENSOR_DELAY_NORMAL);
