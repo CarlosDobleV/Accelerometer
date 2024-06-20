@@ -32,23 +32,24 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
 
-        accelerometerData = findViewById(R.id.accelerometerData); // Textview del acelerómetro
-        magneticData = findViewById(R.id.magneticData); // Textview del magnetometro
-        gyroscopeData = findViewById(R.id.gyroscopeData); // Textview del giroscopio
+        setContentView(R.layout.activity_main); // Layout
+
+        accelerometerData = findViewById(R.id.accelerometerData); // Textview accelerometer
+        magneticData = findViewById(R.id.magneticData); // Textview magnetic field sensor
+        gyroscopeData = findViewById(R.id.gyroscopeData); // Textview gyroscope
 
 
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE); // Sensor Manager
 
         if (sensorManager != null) {
-            accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-            magnetic = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
-            gyroscope = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+            accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER); // Accelerometer
+            magnetic = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD); // Magnetic field
+            gyroscope = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE); // Gyroscope
 
-            sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
-            sensorManager.registerListener(this,magnetic,SensorManager.SENSOR_DELAY_NORMAL);
-            sensorManager.registerListener(this,gyroscope,SensorManager.SENSOR_DELAY_NORMAL);
+            sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL); // Accelerometer
+            sensorManager.registerListener(this,magnetic,SensorManager.SENSOR_DELAY_NORMAL); // Magnetic field
+            sensorManager.registerListener(this,gyroscope,SensorManager.SENSOR_DELAY_NORMAL); // Gyroscope
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
